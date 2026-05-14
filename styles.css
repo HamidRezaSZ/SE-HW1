@@ -140,6 +140,31 @@ h2 {
   flex-wrap: wrap;
 }
 
+.stats-bar {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.stat-card {
+  background: #ffffffcf;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.8rem 1rem;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #36504d;
+}
+
+.stat-card strong {
+  font-family: "Syne", sans-serif;
+  font-size: 1.4rem;
+}
+
 button,
 .text-link {
   border-radius: 999px;
@@ -263,7 +288,19 @@ footer {
     padding: 1.15rem;
   }
 
+  h1 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .hero-actions {
+    gap: 0.6rem;
+  }
+
   .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-bar {
     grid-template-columns: 1fr;
   }
 
