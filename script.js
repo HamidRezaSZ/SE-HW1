@@ -11,6 +11,13 @@ const ctaButton = document.getElementById("ctaButton");
 const checkForm = document.getElementById("checkForm");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
+const commitCount = document.getElementById("commitCount");
+const conflictCount = document.getElementById("conflictCount");
+
+const projectSnapshot = {
+  commits: "20+",
+  conflicts: "2"
+};
 
 function renderTimeline() {
   timelineList.innerHTML = timeline
@@ -22,6 +29,11 @@ function addTask(taskText) {
   const li = document.createElement("li");
   li.textContent = taskText;
   taskList.appendChild(li);
+}
+
+function renderProjectSnapshot() {
+  commitCount.textContent = projectSnapshot.commits;
+  conflictCount.textContent = projectSnapshot.conflicts;
 }
 
 ctaButton.addEventListener("click", () => {
@@ -42,5 +54,6 @@ checkForm.addEventListener("submit", event => {
 });
 
 renderTimeline();
+renderProjectSnapshot();
 addTask("Protect main branch and require pull requests");
 addTask("Split at least 20 meaningful commits evenly between teammates");
