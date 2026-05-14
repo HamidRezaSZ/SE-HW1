@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseBoard | Static Frontend Demo</title>
+    <meta
+      name="description"
+      content="A static frontend project prepared for Software Engineering assignment with Git workflow and CI/CD deployment."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+
+    <header class="site-header">
+      <div class="brand">PulseBoard</div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <p class="eyebrow">Software Engineering Lab</p>
+        <h1>Static Frontend with Team-Ready Git Workflow</h1>
+        <p>
+          This page is a deployable static frontend sample prepared for a
+          repository-first workflow with branches, pull requests, conflict
+          resolution, and GitHub Actions.
+        </p>
+        <div class="hero-actions">
+          <button id="ctaButton">View Progress</button>
+          <a href="#timeline" class="text-link">Project Timeline</a>
+        </div>
+      </section>
+
+      <section id="features" class="panel reveal">
+        <h2>What This Demo Includes</h2>
+        <div class="grid">
+          <article>
+            <h3>Static Build</h3>
+            <p>Pure HTML, CSS, and JavaScript with no runtime dependencies.</p>
+          </article>
+          <article>
+            <h3>Responsive UI</h3>
+            <p>Mobile-first layout with fluid spacing and adaptive typography.</p>
+          </article>
+          <article>
+            <h3>Automated Deploy</h3>
+            <p>GitHub Actions workflow publishes directly to GitHub Pages.</p>
+          </article>
+          <article>
+            <h3>Team Process</h3>
+            <p>Branching model and commits prepared for two contributors.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="timeline" class="panel reveal">
+        <h2>Milestone Progress</h2>
+        <ul id="timelineList" class="timeline"></ul>
+      </section>
+
+      <section id="contact" class="panel reveal">
+        <h2>Team Checklist</h2>
+        <form id="checkForm">
+          <label for="taskInput">Add task</label>
+          <div class="inline-form">
+            <input id="taskInput" name="taskInput" type="text" placeholder="Example: Open PR for feature/navbar" required />
+            <button type="submit">Add</button>
+          </div>
+        </form>
+        <ul id="taskList" class="task-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>Built for the Software Engineering assignment with Git + GitHub Actions.</small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
