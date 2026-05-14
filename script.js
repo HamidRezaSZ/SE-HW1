@@ -13,6 +13,7 @@ const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 const commitCount = document.getElementById("commitCount");
 const conflictCount = document.getElementById("conflictCount");
+const TASKS_STORAGE_KEY = "pulseboard.tasks";
 
 const projectSnapshot = {
   commits: "20+",
@@ -36,10 +37,34 @@ function addTask(taskText) {
   removeButton.textContent = "Remove";
   removeButton.addEventListener("click", () => {
     li.remove();
+    saveTasks();
   });
 
   li.append(label, removeButton);
   taskList.appendChild(li);
+  saveTasks();
+}
+
+function saveTasks() {
+  const tasks = Array.from(taskList.querySelectorAll("li > span")).map(node => node.textContent);
+  localStorage.setItem(TASKS_STORAGE_KEY, JSON.stringify(tasks));
+}
+
+function restoreTasks() {
+  const raw = localStorage.getItem(TASKS_STORAGE_KEY);
+  if (!raw) {
+    return;
+  }
+
+  try {
+    const tasks = JSON.parse(raw);
+    if (!Array.isArray(tasks)) {
+      return;
+    }
+    tasks.forEach(addTask);
+  } catch {
+    localStorage.removeItem(TASKS_STORAGE_KEY);
+  }
 }
 
 function renderProjectSnapshot() {
@@ -66,5 +91,8 @@ checkForm.addEventListener("submit", event => {
 
 renderTimeline();
 renderProjectSnapshot();
-addTask("Protect main branch and require pull requests");
-addTask("Split at least 20 meaningful commits evenly between teammates");
+restoreTasks();
+if (!taskList.children.length) {
+  addTask("Protect main branch and require pull requests");
+  addTask("Split at least 20 meaningful commits evenly between teammates");
+}
