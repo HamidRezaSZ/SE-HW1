@@ -186,6 +186,15 @@ button:hover {
   box-shadow: 0 10px 20px rgba(15, 118, 110, 0.28);
 }
 
+button:focus-visible,
+.text-link:focus-visible,
+input:focus-visible,
+.remove-task:focus-visible,
+nav a:focus-visible {
+  outline: 3px solid #1c8b81;
+  outline-offset: 2px;
+}
+
 .text-link {
   color: var(--ink);
   text-decoration: none;
@@ -229,6 +238,20 @@ button:hover {
   margin-bottom: 0.6rem;
   padding: 0.7rem 0.9rem;
   background: #fff;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.remove-task {
+  background: #f5faf9;
+  color: #184340;
+  border-color: rgba(15, 118, 110, 0.25);
+  padding: 0.35rem 0.7rem;
 }
 
 .inline-form {
