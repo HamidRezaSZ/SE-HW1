@@ -27,7 +27,18 @@ function renderTimeline() {
 
 function addTask(taskText) {
   const li = document.createElement("li");
-  li.textContent = taskText;
+  const label = document.createElement("span");
+  label.textContent = taskText;
+
+  const removeButton = document.createElement("button");
+  removeButton.type = "button";
+  removeButton.className = "remove-task";
+  removeButton.textContent = "Remove";
+  removeButton.addEventListener("click", () => {
+    li.remove();
+  });
+
+  li.append(label, removeButton);
   taskList.appendChild(li);
 }
 

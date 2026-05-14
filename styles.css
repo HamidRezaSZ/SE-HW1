@@ -231,6 +231,20 @@ button:hover {
   background: #fff;
 }
 
+.task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.remove-task {
+  background: #f5faf9;
+  color: #184340;
+  border-color: rgba(15, 118, 110, 0.25);
+  padding: 0.35rem 0.7rem;
+}
+
 .inline-form {
   display: flex;
   gap: 0.6rem;
